@@ -1,0 +1,6 @@
+class_name: CliTester
+modules:
+    enabled:
+        - Asserts
+        - Filesystem
+        - Cli

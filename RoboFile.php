@@ -4,7 +4,10 @@
  *
  * @see http://robo.li/
  */
+
+define('PROJECT_ROOT', __DIR__);
+
 class RoboFile extends \Robo\Tasks
 {
-    // define public methods as commands
+    use \GreenCape\Robo\Command\MetricsCommands;
 }
