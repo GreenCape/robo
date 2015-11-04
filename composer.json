@@ -1,0 +1,30 @@
+{
+  "name": "greencape/robo",
+  "description": "A collection of Robo.li tasks, mainly for use in GreenCape/build",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Niels Braczek",
+      "email": "nbraczek@bsds.de"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "GreenCape\\Robo\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "GreenCape\\RoboTest\\": "tests"
+    }
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "codegyre/robo": "~0.5",
+    "greencape/joomla-cs": "~0.2"
+  },
+  "require-dev": {
+    "codeception/base": "~2.1",
+    "codeception/aspect-mock": "~0.5"
+  }
+}
