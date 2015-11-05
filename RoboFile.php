@@ -10,4 +10,5 @@ define('PROJECT_ROOT', __DIR__);
 class RoboFile extends \Robo\Tasks
 {
     use \GreenCape\Robo\Command\MetricsCommands;
+    use \GreenCape\Robo\Command\TestCommands;
 }
