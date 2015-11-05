@@ -2,6 +2,9 @@
 
 A collection of Robo.li tasks, mainly for use in GreenCape/build
 
+> **CAVEAT:** This project is in a very early stadium and far from complete.
+> Use it on your own risk.
+
 ## Installation
 
 ```sh
