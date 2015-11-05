@@ -12,8 +12,8 @@ class CodeSnifferCest
 {
     public function testVersion(\CliTester $I)
     {
-        $I->wantTo('verify that PHPCS 2 is used as Code Sniffer');
+        $I->wantTo('verify that PHPCS 1 is used as Code Sniffer');
         $I->runShellCommand('robo metrics:version', false);
-        $I->seeShellOutputMatches('~PHP_CodeSniffer version 2\.\d+\.\d+~i');
+        $I->seeShellOutputMatches('~PHP_CodeSniffer version 1\.\d+\.\d+~i');
     }
 }
