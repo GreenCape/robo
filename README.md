@@ -35,6 +35,8 @@ Now you can list the available commands:
 
 ```sh
 $ robo list
+```
+```
 Robo version 0.6.0
 
 Usage:
