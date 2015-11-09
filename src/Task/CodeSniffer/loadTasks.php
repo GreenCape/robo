@@ -6,12 +6,12 @@
  * @license   MIT
  */
 
-namespace GreenCape\Robo\Task\Metrics;
+namespace GreenCape\Robo\Task\CodeSniffer;
 
 trait loadTasks
 {
-    protected function taskMetrics()
+    protected function taskCodeSnifferDocument()
     {
-        return new Metrics;
+        return new Document;
     }
 }

@@ -8,12 +8,12 @@
 
 namespace GreenCape\RoboTest;
 
-class DependencyDetectorCest
+class CodeSnifferCest
 {
     public function testVersion(\CliTester $I)
     {
-        $I->wantTo('verify that PDepend 2 is used as Dependency Detector');
-        $I->runShellCommand('robo metrics:version', false);
-        $I->seeShellOutputMatches('~PDepend 2\.\d+\.\d+~i');
+        $I->wantTo('verify that PHPCS 2 is used as Code Sniffer');
+        $I->runShellCommand('vendor/bin/phpcs --version', false);
+        $I->seeShellOutputMatches('~PHP_CodeSniffer version 2\.\d+\.\d+~i');
     }
 }
