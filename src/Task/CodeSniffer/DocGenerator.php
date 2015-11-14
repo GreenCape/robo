@@ -30,16 +30,26 @@ class DocGenerator extends \PHP_CodeSniffer_DocGenerators_Generator
     {
         $data = [
             'standard' => preg_replace('~^.*/([^/]+)$~', '\1', $this->getStandard()),
-            'sniffs'   => [],
+            'rules'   => [],
             'version'  => \PHP_CodeSniffer::VERSION
         ];
 
         foreach ($this->getStandardFiles() as $standard) {
             $doc = new \DOMDocument;
             $doc->load($standard);
-            $documentation    = $doc->getElementsByTagName('documentation')->item(0);
-            $data['sniffs'][] = $this->processSniff($documentation);
+            $documentation = $doc->getElementsByTagName('documentation')->item(0);
+            preg_match('~/([^/]+)/Docs/([^/]+)/([^/]+)Standard.xml$~', $standard, $match);
+            if (!isset($data['rules'][$match[2]])) {
+                $data['rules'][$match[2]] = [
+                    'group'  => $match[2],
+                    'sniffs' => []
+                ];
+            }
+            $sniff                       = $this->processSniff($documentation);
+            $sniff['name']               = "{$match[1]}.{$match[2]}.{$match[3]}";
+            $data['rules'][$match[2]]['sniffs'][] = $sniff;
         }
+        ksort($data['rules']);
 
         if (empty($this->template)) {
             $this->template = __DIR__ . '/codestyle.html';
@@ -58,8 +68,8 @@ class DocGenerator extends \PHP_CodeSniffer_DocGenerators_Generator
      * Process the documentation for a single sniff.
      *
      * @param \DOMNode $doc The DOMNode object for the sniff.
-     *                     It represents the "documentation" tag in the XML
-     *                     standard file.
+     *                      It represents the "documentation" tag in the XML
+     *                      standard file.
      *
      * @return string
      */
@@ -115,8 +125,6 @@ class DocGenerator extends \PHP_CodeSniffer_DocGenerators_Generator
             '<?php' => '&lt;?php',
             "\n"    => '<br/>',
             ' '     => '&nbsp;',
-            '<em>'  => '<span class="code-comparison-highlight">',
-            '</em>' => '</span>',
         ];
 
         $codeBlocks = $node->getElementsByTagName('code');
