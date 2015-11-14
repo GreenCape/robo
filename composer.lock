@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7ef9f6f5f392e10f29c9f1e19ad34a34",
-    "content-hash": "1d278ad36022e6f7b806af97a91530de",
+    "hash": "bdf45c3ad1b1262b4af753988b584a45",
+    "content-hash": "ca454e39b6652b36c909f79de191c823",
     "packages": [
         {
             "name": "codegyre/robo",
@@ -61,16 +61,16 @@
         },
         {
             "name": "greencape/coding-standards",
-            "version": "dev-master",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GreenCape/coding-standards.git",
-                "reference": "a54a081630d47cf972ab23b12a12aa273e9f3dc6"
+                "reference": "2606fb6ec52402972aec99665ab47a7a3b5eb896"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GreenCape/coding-standards/zipball/a54a081630d47cf972ab23b12a12aa273e9f3dc6",
-                "reference": "a54a081630d47cf972ab23b12a12aa273e9f3dc6",
+                "url": "https://api.github.com/repos/GreenCape/coding-standards/zipball/2606fb6ec52402972aec99665ab47a7a3b5eb896",
+                "reference": "2606fb6ec52402972aec99665ab47a7a3b5eb896",
                 "shasum": ""
             },
             "require": {
@@ -102,7 +102,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2015-11-09 17:21:53"
+            "time": "2015-11-14 02:57:58"
         },
         {
             "name": "halleck45/phpmetrics",
@@ -3269,9 +3269,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "greencape/coding-standards": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
