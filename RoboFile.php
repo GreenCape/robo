@@ -16,9 +16,7 @@ class RoboFile extends \Robo\Tasks
     {
         foreach (parse_ini_file('robo.ini', true) as $section => $settings) {
             foreach ($settings as $key => $value) {
-                if (!empty($value)) {
-                    $this->configure("$section.$key", $value);
-                }
+                $this->configure("$section.$key", $value);
             }
         }
     }
@@ -33,9 +31,10 @@ class RoboFile extends \Robo\Tasks
         $pattern = empty($subset) ? '~^RoboFile\.(.*)$~' : $pattern = '~^RoboFile(\.' . $subset . '\..*)$~i';
 
         if ($options['no-ansi']) {
-            $format = "%-32s %s";
+            $formatA = $formatB = "%-32s %s";
         } else {
-            $format = "<fg=yellow>%-32s</fg=yellow> <fg=green>%s</fg=green>";
+            $formatA = "<fg=yellow>%-32s</fg=yellow> <fg=green>%s</fg=green>";
+            $formatB = "<fg=yellow>%-32s</fg=yellow> %s";
         }
 
         $config = new ReflectionProperty('\Robo\Config', 'config');
@@ -45,8 +44,14 @@ class RoboFile extends \Robo\Tasks
             if (!preg_match($pattern, $key, $match)) {
                 continue;
             }
+            $format = $formatA;
             if (!is_scalar($value)) {
                 $value = gettype($value);
+                $format = $formatB;
+            }
+            if (empty($value)) {
+                $value = 'not set';
+                $format = $formatB;
             }
             $this->say(sprintf($format, $match[1], $value));
         }
