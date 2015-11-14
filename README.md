@@ -54,25 +54,26 @@ Options:
   -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
 
 Available commands:
-  configure           
-  help                Displays help for a command
-  list                Lists commands
-  test                Run all available tests
+  configure                 
+  help                      Displays help for a command
+  list                      Lists commands
+  test                      Run all available tests
  check
-  check:codestyle     
+  check:codestyle           
  document
-  document:codestyle  Generate documentation for a coding standard.
+  document:codestyle        Generate documentation for a coding standard.
  fix
-  fix:codestyle       
+  fix:codestyle             
  metrics
-  metrics:codestyle   
+  metrics:codestyle         
  show
-  show:config         Show the current configuration settings
+  show:codestyle-standards  Show the available coding standards
+  show:config               Show the current configuration settings
  test
-  test:acceptance     Run the acceptance (system) tests
-  test:cli            Run the command line tests
-  test:functional     Run the functional (integration) tests
-  test:integration    Alias for test:functional
-  test:system         Alias for test:acceptance
-  test:unit           Run the unit tests
+  test:acceptance           Run the acceptance (system) tests
+  test:cli                  Run the command line tests
+  test:functional           Run the functional (integration) tests
+  test:integration          Alias for test:functional
+  test:system               Alias for test:acceptance
+  test:unit                 Run the unit tests
 ```

@@ -93,6 +93,25 @@ trait CodeSnifferCommands
             ->run();
     }
 
+    /**
+     * Show the available coding standards
+     *
+     * @param array $options
+     */
+    public function showCodestyleStandards($options = [])
+    {
+        $phpcs = new \PHP_CodeSniffer;
+        $standards = $phpcs->getInstalledStandards();
+        sort($standards);
+        if (!$options['no-ansi']) {
+            array_walk($standards, function(&$value) {
+                $value = "<fg=green>$value</fg=green>";
+            });
+        }
+        $last = array_pop($standards);
+        $this->say("Installed coding standards are " . implode(', ', $standards) . " and " . $last);
+    }
+
     private function runCodeSniffer($options)
     {
         $this->startTimer();
