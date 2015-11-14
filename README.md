@@ -1,4 +1,4 @@
-# robo
+# GreenCape/robo
 
 A collection of Robo.li tasks, mainly for use in GreenCape/build
 
@@ -16,6 +16,8 @@ Add the local `vendor` directory to your path, if not already done so:
 ```sh
 $ export PATH="./vendor/bin:$PATH"
 ```
+
+To make this change permanent, add the line to your `~.bashrc` file.
 
 Add the new commands to your `RoboFile.php` in your project's root:
 
@@ -52,18 +54,25 @@ Options:
   -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
 
 Available commands:
-  help               Displays help for a command
-  list               Lists commands
-  metrics            
-  test               
+  configure           
+  help                Displays help for a command
+  list                Lists commands
+  test                Run all available tests
+ check
+  check:codestyle     
+ document
+  document:codestyle  Generate documentation for a coding standard.
+ fix
+  fix:codestyle       
  metrics
-  metrics:codestyle  
-  metrics:versions   Report the versions of the available tools
+  metrics:codestyle   
+ show
+  show:config         Show the current configuration settings
  test
-  test:acceptance    
-  test:cli           
-  test:functional    
-  test:integration   
-  test:system        
-  test:unit          
+  test:acceptance     Run the acceptance (system) tests
+  test:cli            Run the command line tests
+  test:functional     Run the functional (integration) tests
+  test:integration    Alias for test:functional
+  test:system         Alias for test:acceptance
+  test:unit           Run the unit tests
 ```
