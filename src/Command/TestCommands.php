@@ -12,6 +12,9 @@ trait TestCommands
 {
     use \Robo\Task\Testing\loadTasks;
 
+    /**
+     * Run all available tests
+     */
     public function test()
     {
         foreach (['unit', 'cli', 'functional', 'acceptance'] as $suite) {
@@ -22,6 +25,9 @@ trait TestCommands
         }
     }
 
+    /**
+     * Run the unit tests
+     */
     public function testUnit()
     {
         $this->taskCodecept()
@@ -29,6 +35,9 @@ trait TestCommands
              ->run();
     }
 
+    /**
+     * Run the command line tests
+     */
     public function testCli()
     {
         $this->taskCodecept()
@@ -36,11 +45,17 @@ trait TestCommands
              ->run();
     }
 
+    /**
+     * Alias for test:functional
+     */
     public function testIntegration()
     {
         $this->testFunctional();
     }
 
+    /**
+     * Run the functional (integration) tests
+     */
     public function testFunctional()
     {
         $this->taskCodecept()
@@ -48,11 +63,17 @@ trait TestCommands
              ->run();
     }
 
+    /**
+     * Alias for test:acceptance
+     */
     public function testSystem()
     {
         $this->testAcceptance();
     }
 
+    /**
+     * Run the acceptance (system) tests
+     */
     public function testAcceptance()
     {
         $this->taskCodecept()
