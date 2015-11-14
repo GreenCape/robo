@@ -48,6 +48,14 @@ class Document extends BaseTask
      */
     public function __construct()
     {
+        foreach (parse_ini_file('robo.ini', true) as $section => $settings) {
+            foreach ($settings as $key => $value) {
+                if (!empty($value)) {
+                    $this->configure("$section.$key", $value);
+                }
+            }
+        }
+
         $this->standard = $this->getConfigValue('codestyle.standard', 'PSR2');
         $this->template = $this->getConfigValue('codestyle.template', 'build/templates/codestyle.html');
         $this->outfile  = $this->getConfigValue('codestyle.outfile', null);

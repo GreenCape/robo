@@ -16,7 +16,9 @@ class RoboFile extends \Robo\Tasks
     {
         foreach (parse_ini_file('robo.ini', true) as $section => $settings) {
             foreach ($settings as $key => $value) {
-                $this->configure("$section.$key", $value);
+                if (!empty($value)) {
+                    $this->configure("$section.$key", $value);
+                }
             }
         }
     }
