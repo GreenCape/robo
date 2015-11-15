@@ -23,16 +23,31 @@
             h2 {
                 color: #00A5E3;
                 font-size: 16px;
-                font-weight: normal;
+                font-weight: bold;
                 margin-top: 50px;
+            }
+
+            h3 {
+                font-size: 14px;
+            }
+
+            main>aside {
+                float: left;
+                width: 20%;
+                overflow: hidden;
+            }
+
+            main>section {
+                margin-left: 20%;
             }
 
             .code-comparison {
                 width: 100%;
             }
 
-            .code-comparison td {
+            .code-comparison td, .code-comparison th {
                 border: 1px solid #CCCCCC;
+                text-align: left;
             }
 
             .code-comparison-title, .code-comparison-code {
@@ -47,75 +62,91 @@
             }
 
             .code-comparison-code {
-                font-family: Courier;
+                font-family: Courier, monospace;
                 background-color: #F9F9F9;
             }
 
-            .code-comparison-highlight {
+            .code-comparison-code em {
                 line-height: 15px;
+                font-style: normal;
             }
 
-            .valid .code-comparison-highlight {
+            .valid em {
                 background-color: #DFD;
                 border: 1px solid #5A5;
                 line-height: 15px;
             }
 
-            .invalid .code-comparison-highlight {
+            .invalid em {
                 background-color: #FDD;
                 border: 1px solid #E55;
                 line-height: 15px;
             }
 
-            .tag-line {
+            footer {
                 text-align: center;
                 width: 100%;
                 margin-top: 30px;
                 font-size: 12px;
             }
 
-            .tag-line a {
+            .footer a {
                 color: #000000;
             }
         </style>
     </head>
     <body>
-        <h1>{{ standard }} Coding Standards</h1>
-        <h2>Table of Contents</h2>
+        <header>
+            <h1>{{ standard }} Coding Standards</h1>
+        </header>
 
-        <ul class="toc">
-        {% for sniff in sniffs %}
-            <li><a href="#{{ sniff.id }}">{{ sniff.title }}</a></li>
-        {% endfor %}
-        </ul>
+        <main>
+            <aside>
+                <nav>
+                    {% for group in rules %}
+                    <a href="#{{ group.name }}"><h3>{{ group.name }}</h3></a>
+                    <ul class="toc">
+                        {% for sniff in group.sniffs %}
+                        <li><a href="#{{ sniff.id }}">{{ sniff.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    {% endfor %}
+                </nav>
+            </aside>
 
-        {% for sniff in sniffs %}
-        <h2 id="{{ sniff.id }}">{{ sniff.title }}</h2>
+            <section>
+                {% for group in rules %}
+                <h2 id="{{ group.name }}">{{ group.name }}</h2>
+                {% for sniff in group.sniffs %}
+                <h3 id="{{ sniff.id }}">{{ sniff.title }} ({{ sniff.name }})</h3>
 
-        {% for block in sniff.blocks %}
-        {% if block.type == 'text' %}
-        <p class="text">{{ block.content|raw }}</p>
-        {% endif %}
-        {% if block.type == 'code' %}
-        <table class="code-comparison">
-            <tr>
-                <td class="code-comparison-title valid">{{ block.content.valid.title }}</td>
-                <td class="code-comparison-title invalid">{{ block.content.invalid.title }}</td>
-            </tr>
-            <tr>
-                <td class="code-comparison-code valid">{{ block.content.valid.code|raw }}</td>
-                <td class="code-comparison-code invalid">{{ block.content.invalid.code|raw }}</td>
-            </tr>
-        </table>
-        {% endif %}
-        {% endfor %}
-        {% endfor %}
+                {% for block in sniff.blocks %}
+                {% if block.type == 'text' %}
+                <p class="text">{{ block.content|raw }}</p>
+                {% endif %}
+                {% if block.type == 'code' %}
+                <table class="code-comparison">
+                    <tr>
+                        <th class="code-comparison-title valid">{{ block.content.valid.title }}</th>
+                        <th class="code-comparison-title invalid">{{ block.content.invalid.title }}</th>
+                    </tr>
+                    <tr>
+                        <td class="code-comparison-code valid"><code>{{ block.content.valid.code|raw }}</code></td>
+                        <td class="code-comparison-code invalid"><code>{{ block.content.invalid.code|raw }}</code></td>
+                    </tr>
+                </table>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                {% endfor %}
+            </section>
+        </main>
 
-        <div class="tag-line">
+        <footer>
             Documentation generated on {{ "now"|date() }} by
             <a href="">GreenCape/robo</a>
             using
             <a href="https://github.com/squizlabs/PHP_CodeSniffer">PHP_CodeSniffer {{ version }}</a>
-        </div>
+        </footer>
     </body>
 </html>
