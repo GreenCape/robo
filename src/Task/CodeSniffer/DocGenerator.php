@@ -41,7 +41,7 @@ class DocGenerator extends \PHP_CodeSniffer_DocGenerators_Generator
             preg_match('~/([^/]+)/Docs/([^/]+)/([^/]+)Standard.xml$~', $standard, $match);
             if (!isset($data['rules'][$match[2]])) {
                 $data['rules'][$match[2]] = [
-                    'group'  => $match[2],
+                    'name'  => $match[2],
                     'sniffs' => []
                 ];
             }

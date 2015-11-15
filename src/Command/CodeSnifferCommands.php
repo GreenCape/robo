@@ -57,7 +57,8 @@ trait CodeSnifferCommands
     /**
      * Generate documentation for a coding standard.
      *
-     * @todo Provide template documentation
+     * See https://github.com/GreenCape/robo/tree/master/docs/codestyle-template.md
+     * for information about how to build a custom template.
      *
      * @param array $options
      * @option $standard [Path to] the standard to be documented

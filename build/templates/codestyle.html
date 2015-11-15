@@ -90,7 +90,7 @@
                 font-size: 12px;
             }
 
-            .tag-line a {
+            .footer a {
                 color: #000000;
             }
         </style>
@@ -104,7 +104,7 @@
             <aside>
                 <nav>
                     {% for group in rules %}
-                    <a href="#{{ group.group }}"><h3>{{ group.group }}</h3></a>
+                    <a href="#{{ group.name }}"><h3>{{ group.name }}</h3></a>
                     <ul class="toc">
                         {% for sniff in group.sniffs %}
                         <li><a href="#{{ sniff.id }}">{{ sniff.title }}</a></li>
@@ -116,7 +116,7 @@
 
             <section>
                 {% for group in rules %}
-                <h2 id="{{ group.group }}">{{ group.group }}</h2>
+                <h2 id="{{ group.name }}">{{ group.name }}</h2>
                 {% for sniff in group.sniffs %}
                 <h3 id="{{ sniff.id }}">{{ sniff.title }} ({{ sniff.name }})</h3>
 
