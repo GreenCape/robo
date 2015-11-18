@@ -1,7 +1,7 @@
 <?php
 namespace GreenCape\Robo\Task\CodeSniffer;
 
-use Robo\Common\Configuration;
+use GreenCape\Robo\Configuration;
 use Robo\Common\Timer;
 use Robo\Result;
 use Robo\Task\BaseTask;
@@ -38,7 +38,6 @@ class Document extends BaseTask
     protected $template;
     protected $outfile;
 
-    use Configuration;
     use Timer;
 
     /**
@@ -48,17 +47,9 @@ class Document extends BaseTask
      */
     public function __construct()
     {
-        foreach (parse_ini_file('robo.ini', true) as $section => $settings) {
-            foreach ($settings as $key => $value) {
-                if (!empty($value)) {
-                    $this->configure("$section.$key", $value);
-                }
-            }
-        }
-
-        $this->standard = $this->getConfigValue('codestyle.standard', 'PSR2');
-        $this->template = $this->getConfigValue('codestyle.template', 'build/templates/codestyle.html');
-        $this->outfile  = $this->getConfigValue('codestyle.outfile', null);
+        $this->standard = Configuration::get('codestyle.standard', 'PSR2');
+        $this->template = Configuration::get('codestyle.doc.template', 'build/templates/codestyle.html');
+        $this->outfile  = Configuration::get('codestyle.doc.file', null);
     }
 
     public function run()
