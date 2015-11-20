@@ -11,6 +11,7 @@ class RoboFile extends \Robo\Tasks
 {
     use \GreenCape\Robo\Command\TestCommands;
     use \GreenCape\Robo\Command\CodeSnifferCommands;
+    use \GreenCape\Robo\Command\QACommands;
 
     public function __construct()
     {

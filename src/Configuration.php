@@ -17,7 +17,6 @@ class Configuration
             'codestyle.standard'     => "PSR1,PSR2",
             'codestyle.doc.template' => __DIR__ . '/Template/codestyle.html',
             'codestyle.doc.file'     => "docs/codestyle.html",
-            'codestyle.ignore'       => null,
             'codestyle.log.file'     => "logs/checkstyle.xml"
         ];
 

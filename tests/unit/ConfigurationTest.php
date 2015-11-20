@@ -29,7 +29,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         Configuration::init(dirname(__DIR__) . '/_data/robo.ini');
 
         $default = 'default value';
-        $value   = Configuration::get('codestyle.ignore', $default);
+        $value   = Configuration::get('project.ignore', $default);
 
         $this->assertEquals($default, $value);
     }

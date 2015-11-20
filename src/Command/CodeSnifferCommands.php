@@ -22,36 +22,16 @@ trait CodeSnifferCommands
     /**
      * @param       $source
      * @param array $options
-     * @option $standard [Path to] the standard to be checked for
      */
-    public function checkCodestyle(
-        $source = null,
-        $options = [
-            'standard' => null
-        ]
-    )
+    public function checkCodestyle($source = null, $options = [
+        'standard' => null,
+        'report'  => null
+    ])
     {
-
-        if (empty($source)) {
-            $source = $this->getConfigValue('project.source', PROJECT_ROOT);
-        }
-
-        $defaults = [
-            'files' => $source,
-            'standard' => $this->getConfigValue('codestyle.standard', 'PSR2'),
-            'ignored' => '',
-            'showProgress' => true,
-            'verbosity'    => true,
-            'report-width' => '150',
-            'ignoreErrors' => true
-        ];
-        $options  = array_merge($defaults, array_filter($options));
-
-        $phpcs = new \PHP_CodeSniffer_CLI;
-        $phpcs->checkRequirements();
-        $numErrors = $phpcs->process($options);
-
-        $this->say("Found $numErrors errors");
+        $this->taskCodeSnifferValidator($source)
+            ->standard($options['standard'])
+            ->report('checkstyle', $options['report'])
+            ->run();
     }
 
     /**
@@ -105,7 +85,7 @@ trait CodeSnifferCommands
         $standards = $phpcs->getInstalledStandards();
         sort($standards);
         if (!$options['no-ansi']) {
-            array_walk($standards, function(&$value) {
+            array_walk($standards, function (&$value) {
                 $value = "<fg=green>$value</fg=green>";
             });
         }
