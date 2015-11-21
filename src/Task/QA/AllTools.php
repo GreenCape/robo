@@ -1,4 +1,10 @@
 <?php
+/**
+ * @package   GreenCape\Robo
+ * @author    Niels Braczek <nbraczek@bsds.de>
+ * @copyright 2015 BSDS Braczek Software- und DatenSysteme. All rights reserved.
+ * @license   MIT
+ */
 
 namespace GreenCape\Robo\Task\QA;
 
@@ -7,6 +13,11 @@ use GreenCape\Robo\Task\Base;
 use Robo\Result;
 use Robo\Task\Base\ParallelExec;
 
+/**
+ * Class AllTools
+ *
+ * @package GreenCape\Robo\Task\QA
+ */
 class AllTools extends Base
 {
     /** @var  Options */

@@ -8,8 +8,16 @@
 
 namespace GreenCape\Robo\Task\CodeSniffer;
 
+/**
+ * Trait loadTasks
+ *
+ * @package GreenCape\Robo\Task\CodeSniffer
+ */
 trait loadTasks
 {
+    /**
+     * @return Document
+     */
     protected function taskCodeSnifferDocument()
     {
         return new Document;

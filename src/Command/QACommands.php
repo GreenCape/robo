@@ -117,7 +117,7 @@ trait QACommands
     /**
      * Run the copy paste analyser
      *
-     * For documentation of PHP Depend (PDepend) @see http://pdepend.org/documentation/getting-started.html
+     * For documentation of PHP Copy/Paste Detector (PHPCPD) @see https://github.com/sebastianbergmann/phpcpd
      *
      * @param array $options
      * @option $source A comma separated list of files and directories to work on
@@ -145,7 +145,7 @@ trait QACommands
     /**
      * Run the code sniffer
      *
-     * For documentation of PHP Depend (PDepend) @see http://pdepend.org/documentation/getting-started.html
+     * For documentation of PHP CodeSniffer @see https://www.squizlabs.com/php-codesniffer/
      *
      * @param array $options
      * @option $source A comma separated list of files and directories to work on
@@ -173,7 +173,7 @@ trait QACommands
     /**
      * Run the counter
      *
-     * For documentation of PHP Depend (PDepend) @see http://pdepend.org/documentation/getting-started.html
+     * For documentation of PHPLOC @see https://github.com/sebastianbergmann/phploc
      *
      * @param array $options
      * @option $source A comma separated list of files and directories to work on
@@ -201,7 +201,7 @@ trait QACommands
     /**
      * Run the metrics analyser
      *
-     * For documentation of PHP Depend (PDepend) @see http://pdepend.org/documentation/getting-started.html
+     * For documentation of PHP Metrics @see http://www.phpmetrics.org/
      *
      * @param array $options
      * @option $source A comma separated list of files and directories to work on

@@ -12,27 +12,17 @@ use Robo\Common\Configuration;
 use Robo\Common\IO;
 use Robo\Common\Timer;
 
+/**
+ * Trait CodeSnifferCommands
+ *
+ * @package GreenCape\Robo\Command
+ */
 trait CodeSnifferCommands
 {
     use Configuration;
     use Timer;
     use IO;
     use \GreenCape\Robo\Task\CodeSniffer\loadTasks;
-
-    /**
-     * @param       $source
-     * @param array $options
-     */
-    public function checkCodestyle($source = null, $options = [
-        'standard' => null,
-        'report'  => null
-    ])
-    {
-        $this->taskCodeSnifferValidator($source)
-            ->standard($options['standard'])
-            ->report('checkstyle', $options['report'])
-            ->run();
-    }
 
     /**
      * Generate documentation for a coding standard.
@@ -59,21 +49,6 @@ trait CodeSnifferCommands
             ->run();
     }
 
-    public function fixCodestyle()
-    {
-        $this->runCodeSniffer([
-
-        ]);
-    }
-
-    public function metricsCodestyle()
-    {
-        (new CodeStyle)
-            ->inspect('src')
-            ->standard('PSR2')
-            ->run();
-    }
-
     /**
      * Show the available coding standards
      *
@@ -91,16 +66,5 @@ trait CodeSnifferCommands
         }
         $last = array_pop($standards);
         $this->say("Installed coding standards are " . implode(', ', $standards) . " and " . $last);
-    }
-
-    private function runCodeSniffer($options)
-    {
-        $this->startTimer();
-        $phpcs = new \PHP_CodeSniffer_CLI;
-        $phpcs->checkRequirements();
-        $numErrors = $phpcs->process($options);
-        $this->stopTimer();
-
-        return $numErrors;
     }
 }

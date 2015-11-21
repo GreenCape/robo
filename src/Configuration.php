@@ -1,13 +1,26 @@
 <?php
+/**
+ * @package   GreenCape\Robo
+ * @author    Niels Braczek <nbraczek@bsds.de>
+ * @copyright 2015 BSDS Braczek Software- und DatenSysteme. All rights reserved.
+ * @license   MIT
+ */
+
 namespace GreenCape\Robo;
 
 /**
- * Configuration
+ * Class Configuration
+ *
+ * @package GreenCape\Robo
  */
 class Configuration
 {
+    /** @var array  */
     protected static $settings = [];
 
+    /**
+     * @param string $iniFile
+     */
     public static function init($iniFile = 'robo.ini')
     {
         self::$settings = [
@@ -29,6 +42,12 @@ class Configuration
         }
     }
 
+    /**
+     * @param null $key
+     * @param null $default
+     *
+     * @return array|null
+     */
     public static function get($key = null, $default = null)
     {
         if (empty(self::$settings)) {

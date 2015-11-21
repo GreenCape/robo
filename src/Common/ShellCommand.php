@@ -74,13 +74,7 @@ class ShellCommand extends Base implements CommandInterface
         if (!empty($option) && $option[0] != '-') {
             $option = "--$option";
         }
-        $argument = [];
-        if (!empty($option)) {
-            $argument[] = $option;
-        }
-        if (!empty($value)) {
-            $argument[] = $value;
-        }
+        $argument = array_filter([$option, $value]);
         if (!empty($argument)) {
             $this->arguments .= ' ' . implode($this->optionSeparator, $argument);
         }
@@ -128,20 +122,14 @@ class ShellCommand extends Base implements CommandInterface
 
     /**
      * Run the command with the current options.
-     *
-     * @return Result
      */
     public function run()
     {
-        $this->printTaskInfo(sprintf('Running <info>%s</info>', $this->getCommand()));
-
-        $executable = new Exec($this->getCommand());
-
-        $this->suppressOutput();
-        $result = $executable->run();
-        $this->restoreOutput();
-
-        return $this->combineResults([$result]);
+        $this->doRun(new Exec($this->getCommand()), sprintf('Running <info>%s</info>', $this->getCommand()), [
+            'verbose' => false,
+            'quiet' => false,
+            'ignoreErrors' => false,
+        ]);
     }
 
     /**

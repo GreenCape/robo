@@ -1,7 +1,18 @@
 <?php
+/**
+ * @package   GreenCape\Robo
+ * @author    Niels Braczek <nbraczek@bsds.de>
+ * @copyright 2015 BSDS Braczek Software- und DatenSysteme. All rights reserved.
+ * @license   MIT
+ */
 
 namespace GreenCape\Robo\Task\QA;
 
+/**
+ * Class Options
+ *
+ * @package GreenCape\Robo\Task\QA
+ */
 class Options
 {
     /** @var array A list of files and directories to work on */
@@ -24,6 +35,11 @@ class Options
     /** @var boolean */
     public $isVerbose;
 
+    /**
+     * Options constructor.
+     *
+     * @param array $options
+     */
     public function __construct(array $options)
     {
         $this->source          = preg_split('~,\s*~', $options['source']);
@@ -37,6 +53,11 @@ class Options
         $this->isVerbose       = $options['verbose'] & !$options['quiet'];
     }
 
+    /**
+     * @param $file
+     *
+     * @return string
+     */
     public function toFile($file)
     {
         return "{$this->logDir}/{$file}";

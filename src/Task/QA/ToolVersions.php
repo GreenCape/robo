@@ -1,4 +1,10 @@
 <?php
+/**
+ * @package   GreenCape\Robo
+ * @author    Niels Braczek <nbraczek@bsds.de>
+ * @copyright 2015 BSDS Braczek Software- und DatenSysteme. All rights reserved.
+ * @license   MIT
+ */
 
 namespace GreenCape\Robo\Task\QA;
 
@@ -6,8 +12,16 @@ use GreenCape\Robo\Common\ShellCommand;
 use GreenCape\Robo\Task\Base;
 use Robo\Result;
 
+/**
+ * Class ToolVersions
+ *
+ * @package GreenCape\Robo\Task\QA
+ */
 class ToolVersions extends Base
 {
+    /**
+     * @return Result
+     */
     public function run()
     {
         $this->printTaskInfo('Available QA Tools');

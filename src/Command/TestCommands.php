@@ -8,6 +8,11 @@
 
 namespace GreenCape\Robo\Command;
 
+/**
+ * Trait TestCommands
+ *
+ * @package GreenCape\Robo\Command
+ */
 trait TestCommands
 {
     use \Robo\Task\Testing\loadTasks;
@@ -81,6 +86,11 @@ trait TestCommands
              ->run();
     }
 
+    /**
+     * @param $dir
+     *
+     * @return bool
+     */
     private function hasContent($dir)
     {
         foreach (glob("{$dir}/*") as $candidate) {

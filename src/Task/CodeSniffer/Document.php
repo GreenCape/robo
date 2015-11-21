@@ -1,4 +1,11 @@
 <?php
+/**
+ * @package   GreenCape\Robo
+ * @author    Niels Braczek <nbraczek@bsds.de>
+ * @copyright 2015 BSDS Braczek Software- und DatenSysteme. All rights reserved.
+ * @license   MIT
+ */
+
 namespace GreenCape\Robo\Task\CodeSniffer;
 
 use GreenCape\Robo\Configuration;
@@ -34,8 +41,13 @@ use Robo\Task\BaseTask;
  */
 class Document extends BaseTask
 {
+    /** @var string  */
     protected $standard;
+
+    /** @var string  */
     protected $template;
+
+    /** @var string */
     protected $outfile;
 
     use Timer;
@@ -52,6 +64,9 @@ class Document extends BaseTask
         $this->outfile  = Configuration::get('codestyle.doc.file', null);
     }
 
+    /**
+     * @return Result
+     */
     public function run()
     {
         $this->printTaskInfo("Generating documentation for {$this->standard} using {$this->template} template");
@@ -66,6 +81,11 @@ class Document extends BaseTask
         return new Result($this, 0, null, ['time' => $this->getExecutionTime()]);
     }
 
+    /**
+     * @param $standard
+     *
+     * @return $this
+     */
     public function standard($standard)
     {
         if (!empty($standard)) {
@@ -74,6 +94,11 @@ class Document extends BaseTask
         return $this;
     }
 
+    /**
+     * @param $template
+     *
+     * @return $this
+     */
     public function template($template)
     {
         if (!empty($template)) {
@@ -83,6 +108,11 @@ class Document extends BaseTask
         return $this;
     }
 
+    /**
+     * @param $outfile
+     *
+     * @return $this
+     */
     public function outfile($outfile)
     {
         if (!empty($outfile)) {

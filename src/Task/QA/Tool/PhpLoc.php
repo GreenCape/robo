@@ -11,6 +11,11 @@ namespace GreenCape\Robo\Task\QA\Tool;
 use GreenCape\Robo\Common\ShellCommand;
 use GreenCape\Robo\Task\QA\Options;
 
+/**
+ * Class PhpLoc
+ *
+ * @package GreenCape\Robo\Task\QA\Tool
+ */
 class PhpLoc extends ShellCommand
 {
     /**
