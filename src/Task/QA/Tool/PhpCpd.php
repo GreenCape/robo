@@ -13,7 +13,7 @@ namespace GreenCape\Robo\Task\QA\Tool;
  *
  * @package GreenCape\Robo\Task\QA\Tool
  */
-class PhpCpd extends PhpLocCpdBase
+class PhpCpd extends Base
 {
     protected $logOption;
     protected $logFile;

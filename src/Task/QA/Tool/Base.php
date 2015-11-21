@@ -16,7 +16,7 @@ use GreenCape\Robo\Task\QA\Options;
  *
  * @package GreenCape\Robo\Task\QA\Tool
  */
-abstract class PhpLocCpdBase extends ShellCommand
+abstract class Base extends ShellCommand
 {
     protected $logOption;
     protected $logFile;
