@@ -19,6 +19,12 @@ use Robo\Result;
  */
 class ToolVersions extends Base
 {
+    /** @var array Exclude these classes from processing */
+    private $skip = [
+        'Base',
+        'PhpHistory',
+    ];
+
     /**
      * @return Result
      */
@@ -29,6 +35,9 @@ class ToolVersions extends Base
         $this->suppressOutput();
         $results = [];
         foreach (glob(__DIR__ . '/Tool/*.php') as $toolPath) {
+            if (in_array(basename($toolPath, '.php'), $this->skip)) {
+                continue;
+            }
             $result = $this->getTool($toolPath)->version();
             $results[] = new Result(
                 $this,

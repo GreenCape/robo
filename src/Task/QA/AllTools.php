@@ -23,11 +23,19 @@ class AllTools extends Base
     /** @var  Options */
     protected $commonOptions;
 
+    /** @var array Exclude these classes from processing */
+    private $skip = [
+        'Base',
+    ];
+
     public function run()
     {
         $parallel = new ParallelExec();
         $info     = [];
-        foreach (glob(__DIR__ . '/Tool/P*.php') as $toolPath) {
+        foreach (glob(__DIR__ . '/Tool/*.php') as $toolPath) {
+            if (in_array(basename($toolPath, '.php'), $this->skip)) {
+                continue;
+            }
             $tool = $this->getTool($toolPath);
             $tool->options($this->commonOptions);
             $info[] = preg_replace('~^.*?(\w+)$~', '\\1', get_class($tool));
