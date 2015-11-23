@@ -199,6 +199,34 @@ trait QACommands
     }
 
     /**
+     * Extract metrics changes from git repository
+     *
+     * For documentation of PHPLOC @see https://github.com/sebastianbergmann/phploc
+     *
+     * @param array $options
+     * @option $source A comma separated list of files and directories to work on
+     * @option $suffix A comma separated list of valid source code filename extensions
+     * @option $logDir The directory, where log output is stored
+     * @option $ignore A comma separated list of files and directories to skip
+     * @option $output The output, i.e., one of 'file' or 'cli'
+     * @option $configDir The directory, where the config file phpmd.xml is stored
+     */
+    public function qaHistory(
+        $options = [
+            'source'    => 'src',
+            'suffix'    => '.php',
+            'logDir'    => 'build/logs',
+            'ignore'    => 'vendor',
+            'output'    => 'file',
+            'configDir' => 'build/config',
+        ]
+    ) {
+        $this->taskQAHistory()
+             ->options(new Options($options))
+             ->run();
+    }
+
+    /**
      * Run the metrics analyser
      *
      * For documentation of PHP Metrics @see http://www.phpmetrics.org/

@@ -11,6 +11,7 @@ namespace GreenCape\Robo\Task\QA;
 use GreenCape\Robo\Task\QA\Tool\PDepend;
 use GreenCape\Robo\Task\QA\Tool\PhpCpd;
 use GreenCape\Robo\Task\QA\Tool\PhpCs;
+use GreenCape\Robo\Task\QA\Tool\PhpHistory;
 use GreenCape\Robo\Task\QA\Tool\PhpLoc;
 use GreenCape\Robo\Task\QA\Tool\PhpMd;
 use GreenCape\Robo\Task\QA\Tool\PhpMetrics;
@@ -76,6 +77,14 @@ trait loadTasks
     protected function taskQAQuantity()
     {
         return new PhpLoc();
+    }
+
+    /**
+     * @return PhpHistory
+     */
+    protected function taskQAHistory()
+    {
+        return new PhpHistory();
     }
 
     /**

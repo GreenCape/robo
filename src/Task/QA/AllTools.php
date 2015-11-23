@@ -33,7 +33,7 @@ class AllTools extends Base
             $info[] = preg_replace('~^.*?(\w+)$~', '\\1', get_class($tool));
             $parallel->process($tool);
         }
-        $startMessage = 'Performing QA analysis using ' . implode(', ', $info);
+        $startMessage = 'Performing QA analysis using ' . implode(', ', array_unique($info));
 
         $this->doRun($parallel, $startMessage, [
             'verbose'      => $this->commonOptions->isVerbose,
