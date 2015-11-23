@@ -38,7 +38,7 @@ class AllTools extends Base
             }
             $tool = $this->getTool($toolPath);
             $tool->options($this->commonOptions);
-            $info[] = preg_replace('~^.*?(\w+)$~', '\\1', get_class($tool));
+            $info[]    = preg_replace('~.*?/(\w+)\s.*$~', '\\1', $tool->getCommand());
             $parallel->process($tool);
         }
         $startMessage = 'Performing QA analysis using ' . implode(', ', array_unique($info));
