@@ -45,10 +45,10 @@ class Options
     public function __construct(array $options)
     {
         $options               = $this->completeOptions($options);
-        $this->source          = preg_split('~,\s*~', $options['source']);
+        $this->source          = $this->split($options['source']);
         $this->logDir          = $options['logDir'];
-        $this->ignore          = preg_split('~,\s*~', $options['ignore']);
-        $this->suffices        = preg_split('~,\s*~', $options['suffix']);
+        $this->ignore          = $this->split($options['ignore']);
+        $this->suffices        = $this->split($options['suffix']);
         $this->configDir       = $options['configDir'];
         $this->isSavedToFiles  = $options['output'] == 'file';
         $this->isOutputPrinted = $this->isSavedToFiles ? $options['verbose'] : true;
@@ -95,5 +95,15 @@ class Options
         }
 
         return $options;
+    }
+
+    /**
+     * @param $source
+     *
+     * @return array
+     */
+    private function split($source)
+    {
+        return array_filter(preg_split('~,\s*~', $source));
     }
 }
