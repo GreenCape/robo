@@ -15,7 +15,7 @@ namespace GreenCape\Robo;
  */
 class Configuration
 {
-    /** @var array  */
+    /** @var array */
     protected static $settings = [];
 
     /**
@@ -24,8 +24,11 @@ class Configuration
     public static function init($iniFile = 'robo.ini')
     {
         self::$settings = [
-            'project.source' => "src",
-            'project.ignore' => null,
+            'project.source'     => "src",
+            'project.ignore'     => null,
+            'project.suffices'   => '.php',
+            'project.log.dir'    => 'build/logs',
+            'project.config.dir' => 'build/config',
 
             'codestyle.standard'     => "PSR1,PSR2",
             'codestyle.doc.template' => __DIR__ . '/Template/codestyle.html',

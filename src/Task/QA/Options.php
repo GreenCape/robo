@@ -8,6 +8,8 @@
 
 namespace GreenCape\Robo\Task\QA;
 
+use GreenCape\Robo\Configuration;
+
 /**
  * Class Options
  *
@@ -42,6 +44,7 @@ class Options
      */
     public function __construct(array $options)
     {
+        $options               = $this->completeOptions($options);
         $this->source          = preg_split('~,\s*~', $options['source']);
         $this->logDir          = $options['logDir'];
         $this->ignore          = preg_split('~,\s*~', $options['ignore']);
@@ -61,5 +64,36 @@ class Options
     public function toFile($file)
     {
         return "{$this->logDir}/{$file}";
+    }
+
+    /**
+     * @param array $options
+     *
+     * @return array
+     */
+    private function completeOptions(array $options)
+    {
+        if (is_null($options['source'])) {
+            $options['source'] = Configuration::get('project.source');
+        }
+        if (is_null($options['logDir'])) {
+            $options['logDir'] = Configuration::get('project.log.dir');
+        }
+        if (is_null($options['ignore'])) {
+            $options['ignore'] = Configuration::get('project.ignore');
+        }
+        if (is_null($options['suffix'])) {
+            $options['suffix'] = Configuration::get('project.suffices');
+        }
+        if (is_null($options['configDir'])) {
+            $options['configDir'] = Configuration::get('project.config.dir');
+        }
+        if (is_null($options['output'])) {
+            $options['output'] = 'cli';
+
+            return $options;
+        }
+
+        return $options;
     }
 }

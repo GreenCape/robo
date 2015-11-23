@@ -40,16 +40,16 @@ trait QACommands
      * @option $logDir The directory, where log output is stored
      * @option $ignore A comma separated list of files and directories to skip
      * @option $output The output, i.e., one of 'file' or 'cli'
-     * @option $configDir The directory, where the config file phpmd.xml is stored
+     * @option $configDir The directory, where the config files are stored
      */
     public function qa(
         $options = [
-            'source'    => 'src',
-            'suffix'    => '.php',
-            'logDir'    => 'build/logs',
-            'ignore'    => 'vendor',
-            'output'    => 'file',
-            'configDir' => 'build/config',
+            'source'    => null,
+            'suffix'    => null,
+            'logDir'    => null,
+            'ignore'    => null,
+            'output'    => null,
+            'configDir' => null,
         ]
     ) {
         $this->taskQAAllTools()
@@ -72,12 +72,12 @@ trait QACommands
      */
     public function qaMess(
         $options = [
-            'source'    => 'src',
-            'suffix'    => '.php',
-            'logDir'    => 'build/logs',
-            'ignore'    => 'vendor',
-            'output'    => 'file',
-            'configDir' => 'build/config',
+            'source'    => null,
+            'suffix'    => null,
+            'logDir'    => null,
+            'ignore'    => null,
+            'output'    => null,
+            'configDir' => null,
         ]
     ) {
         $this->taskQAMessDetector()
@@ -100,12 +100,12 @@ trait QACommands
      */
     public function qaDepend(
         $options = [
-            'source'    => 'src',
-            'suffix'    => '.php',
-            'logDir'    => 'build/logs',
-            'ignore'    => 'vendor',
-            'output'    => 'file',
-            'configDir' => 'build/config',
+            'source'    => null,
+            'suffix'    => null,
+            'logDir'    => null,
+            'ignore'    => null,
+            'output'    => null,
+            'configDir' => null,
         ]
     ) {
         $this->taskQADepend()
@@ -128,12 +128,12 @@ trait QACommands
      */
     public function qaDuplicate(
         $options = [
-            'source'    => 'src',
-            'suffix'    => '.php',
-            'logDir'    => 'build/logs',
-            'ignore'    => 'vendor',
-            'output'    => 'file',
-            'configDir' => 'build/config',
+            'source'    => null,
+            'suffix'    => null,
+            'logDir'    => null,
+            'ignore'    => null,
+            'output'    => null,
+            'configDir' => null,
         ]
     ) {
         $this->taskQACopyPaste()
@@ -156,12 +156,12 @@ trait QACommands
      */
     public function qaCodestyle(
         $options = [
-            'source'    => 'src',
-            'suffix'    => '.php',
-            'logDir'    => 'build/logs',
-            'ignore'    => 'vendor',
-            'output'    => 'file',
-            'configDir' => 'build/config',
+            'source'    => null,
+            'suffix'    => null,
+            'logDir'    => null,
+            'ignore'    => null,
+            'output'    => null,
+            'configDir' => null,
         ]
     ) {
         $this->taskQACodeSniffer()
@@ -184,12 +184,12 @@ trait QACommands
      */
     public function qaLoc(
         $options = [
-            'source'    => 'src',
-            'suffix'    => '.php',
-            'logDir'    => 'build/logs',
-            'ignore'    => 'vendor',
-            'output'    => 'file',
-            'configDir' => 'build/config',
+            'source'    => null,
+            'suffix'    => null,
+            'logDir'    => null,
+            'ignore'    => null,
+            'output'    => null,
+            'configDir' => null,
         ]
     ) {
         $this->taskQAQuantity()
@@ -212,12 +212,12 @@ trait QACommands
      */
     public function qaHistory(
         $options = [
-            'source'    => 'src',
-            'suffix'    => '.php',
-            'logDir'    => 'build/logs',
-            'ignore'    => 'vendor',
-            'output'    => 'file',
-            'configDir' => 'build/config',
+            'source'    => null,
+            'suffix'    => null,
+            'logDir'    => null,
+            'ignore'    => null,
+            'output'    => null,
+            'configDir' => null,
         ]
     ) {
         $this->taskQAHistory()
@@ -240,12 +240,12 @@ trait QACommands
      */
     public function qaMetrics(
         $options = [
-            'source'    => 'src',
-            'suffix'    => '.php',
-            'logDir'    => 'build/logs',
-            'ignore'    => 'vendor',
-            'output'    => 'file',
-            'configDir' => 'build/config',
+            'source'    => null,
+            'suffix'    => null,
+            'logDir'    => null,
+            'ignore'    => null,
+            'output'    => null,
+            'configDir' => null,
         ]
     ) {
         $this->taskQAMetrics()
