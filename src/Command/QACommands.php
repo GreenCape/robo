@@ -48,7 +48,7 @@ trait QACommands
             'suffix'    => null,
             'logDir'    => null,
             'ignore'    => null,
-            'output'    => null,
+            'output'    => 'file',
             'configDir' => null,
         ]
     ) {
@@ -193,34 +193,6 @@ trait QACommands
         ]
     ) {
         $this->taskQAQuantity()
-             ->options(new Options($options))
-             ->run();
-    }
-
-    /**
-     * Extract metrics changes from git repository
-     *
-     * For documentation of PHPLOC @see https://github.com/sebastianbergmann/phploc
-     *
-     * @param array $options
-     * @option $source A comma separated list of files and directories to work on
-     * @option $suffix A comma separated list of valid source code filename extensions
-     * @option $logDir The directory, where log output is stored
-     * @option $ignore A comma separated list of files and directories to skip
-     * @option $output The output, i.e., one of 'file' or 'cli'
-     * @option $configDir The directory, where the config file phpmd.xml is stored
-     */
-    public function qaHistory(
-        $options = [
-            'source'    => null,
-            'suffix'    => null,
-            'logDir'    => null,
-            'ignore'    => null,
-            'output'    => null,
-            'configDir' => null,
-        ]
-    ) {
-        $this->taskQAHistory()
              ->options(new Options($options))
              ->run();
     }
