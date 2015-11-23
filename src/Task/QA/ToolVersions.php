@@ -22,7 +22,6 @@ class ToolVersions extends Base
     /** @var array Exclude these classes from processing */
     private $skip = [
         'Base',
-        'PhpHistory',
     ];
 
     /**

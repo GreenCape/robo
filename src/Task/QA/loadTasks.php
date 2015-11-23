@@ -80,14 +80,6 @@ trait loadTasks
     }
 
     /**
-     * @return PhpHistory
-     */
-    protected function taskQAHistory()
-    {
-        return new PhpHistory();
-    }
-
-    /**
      * @return PhpMetrics
      */
     protected function taskQAMetrics()
