@@ -8,7 +8,7 @@
 
 namespace GreenCape\Robo\Command;
 
-use Robo\Common\Configuration;
+use GreenCape\Robo\Configuration;
 use Robo\Common\IO;
 use Robo\Common\Timer;
 
@@ -19,7 +19,6 @@ use Robo\Common\Timer;
  */
 trait CodeSnifferCommands
 {
-    use Configuration;
     use Timer;
     use IO;
     use \GreenCape\Robo\Task\CodeSniffer\loadTasks;
@@ -35,14 +34,20 @@ trait CodeSnifferCommands
      * @option $template Path to a Twig template to use for rendering
      * @option $outfile Path to the output file
      */
-    public function documentCodestyle(
+    public function csDocument(
         $options = [
             'standard' => null,
             'template' => null,
             'outfile'  => null
         ]
     ) {
-        $this->taskCodeSnifferDocument()
+        $options = array_merge($this->defaults(), array_filter($options));
+
+        $dir = dirname($options['outfile']);
+        if (!empty($dir) && !file_exists($dir)) {
+            mkdir($dir, 0755, true);
+        }
+        $this->taskCSDocument()
             ->standard($options['standard'])
             ->template($options['template'])
             ->outfile($options['outfile'])
@@ -66,5 +71,18 @@ trait CodeSnifferCommands
         }
         $last = array_pop($standards);
         $this->say("Installed coding standards are " . implode(', ', $standards) . " and " . $last);
+    }
+
+    /**
+     * @return array|null
+     */
+    private function defaults()
+    {
+        $config = Configuration::get();
+        return [
+            'standard' => $config['codestyle.standard'],
+            'template' => $config['codestyle.doc.template'],
+            'outfile'  => $config['codestyle.doc.file'],
+        ];
     }
 }

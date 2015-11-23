@@ -18,7 +18,7 @@ trait loadTasks
     /**
      * @return Document
      */
-    protected function taskCodeSnifferDocument()
+    protected function taskCSDocument()
     {
         return new Document;
     }

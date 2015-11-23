@@ -115,7 +115,6 @@ class DocGenerator extends \PHP_CodeSniffer_DocGenerators_Generator
     {
         $sniff = [
             'title'  => $this->getTitle($doc),
-            'id'     => str_replace(' ', '-', strtolower($this->getTitle($doc))),
             'blocks' => []
         ];
 
@@ -248,7 +247,7 @@ class DocGenerator extends \PHP_CodeSniffer_DocGenerators_Generator
      */
     private function processDocFile(&$data, $standardFile)
     {
-        $doc   = new \DOMDocument;
+        $doc = new \DOMDocument;
         $doc->load($standardFile);
         preg_match('~/([^/]+)/Docs/([^/]+)/([^/]+)Standard.xml$~', $standardFile, $match);
 
@@ -282,18 +281,19 @@ class DocGenerator extends \PHP_CodeSniffer_DocGenerators_Generator
     /**
      * Add a sniff to the data structure
      *
-     * @param array $data
+     * @param array  $data
      *        The data structure
-     * @param $sniff
+     * @param array  $sniff
      *        The sniff structure
-     * @param $group
+     * @param string $group
      *        The group name
-     * @param $name
+     * @param string $name
      *        The sniff name
      */
     private function addSniff(&$data, $sniff, $group, $name)
     {
         $sniff['name']                     = $name;
+        $sniff['id']                       = str_replace('.', '-', strtolower($name));
         $data['rules'][$group]['sniffs'][] = $sniff;
     }
 }

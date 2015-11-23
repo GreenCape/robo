@@ -13,15 +13,6 @@ class RoboFile extends \Robo\Tasks
     use \GreenCape\Robo\Command\CodeSnifferCommands;
     use \GreenCape\Robo\Command\QACommands;
 
-    public function __construct()
-    {
-        foreach (parse_ini_file('robo.ini', true) as $section => $settings) {
-            foreach ($settings as $key => $value) {
-                $this->configure("$section.$key", $value);
-            }
-        }
-    }
-
     /**
      * Show the current configuration settings
      *
