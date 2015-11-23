@@ -51,8 +51,7 @@ trait QACommands
             'output'    => 'file',
             'configDir' => 'build/config',
         ]
-    )
-    {
+    ) {
         $this->taskQAAllTools()
              ->options(new Options($options))
              ->run();

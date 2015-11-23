@@ -80,7 +80,8 @@ class DocGenerator extends \PHP_CodeSniffer_DocGenerators_Generator
      * ```
      *
      * `standard` and `code_comparision` blocks can occur in any order and number.
-     * A `code_comparision` block contains exactly two code blocks, the first one always showing the *valid* code example.
+     * A `code_comparision` block contains exactly two code blocks, the first one always showing the *valid* code
+     * example.
      *
      * @return void
      * @see    processSniff()

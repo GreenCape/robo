@@ -47,7 +47,7 @@ class PDepend extends ShellCommand
         if (!empty($options->suffices)) {
             $this->option('suffix', implode(',', array_map(function ($v) {
                 return ltrim($v, '.');
-            },$options->suffices)));
+            }, $options->suffices)));
         }
         if (!empty($options->ignore)) {
             $this->option('ignore', implode(',', $options->ignore));
