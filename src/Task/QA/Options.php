@@ -90,8 +90,6 @@ class Options
         }
         if (is_null($options['output'])) {
             $options['output'] = 'cli';
-
-            return $options;
         }
 
         return $options;

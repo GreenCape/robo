@@ -9,6 +9,7 @@
 namespace GreenCape\Robo\Task\QA\Tool;
 
 use GreenCape\Robo\Common\ShellCommand;
+use GreenCape\Robo\Configuration;
 use GreenCape\Robo\Task\QA\Options;
 
 /**
@@ -38,6 +39,8 @@ class PhpCs extends ShellCommand
         }
 
         $this->resetArgs();
+
+        $this->option('standard', Configuration::get('codestyle.standard'));
         if (!empty($options->suffices)) {
             $this->option('extensions', implode(',', array_map(function ($v) {
                 return ltrim($v, '.');
