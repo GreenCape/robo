@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GreenCape Dashboard - {{ project.name }}</title>
+    <script type="text/javascript" src="assets/fastdom/index.js"></script>
+    <script charset="utf-8" src="assets/d3.min.js"></script>
+    <script src="assets/nv.d3.js"></script>
+    <script src="assets/enplore/gauge.js"></script>
+    <script src="assets/enplore/gaugeChart.js"></script>
+    <script src="assets/enplore/packedBubble.js"></script>
+    <script src="assets/enplore/packedBubbleChart.js"></script>
+    <link href="assets/nv.d3.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Dashboard - {{ project.name }}</h1>
+    </header>
+    <main>
+        <section id="maintenance-bubble-chart">
+            {{ maintenance_bubble_chart }}
+        </section>
+    </main>
+    <footer>
+        Generated  on {{ "now"|date() }} by
+        <a href="https://github.com/GreenCape/robo">GreenCape/robo</a>
+    </footer>
+</body>

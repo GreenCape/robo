@@ -50,6 +50,7 @@ class PhpMetrics extends ShellCommand
             $this->option('excluded-dirs', '"' . implode('|', $options->ignore) . '"');
         }
         if ($options->isSavedToFiles) {
+            $this->option('report-xml', $options->logDir . '/metrics.xml');
             $this->option('report-html', $options->logDir . '/metrics.html');
             $this->option('chart-bubbles', $options->logDir . '/bubble-chart.svg');
         } else {
