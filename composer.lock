@@ -301,6 +301,7 @@
                 "trace",
                 "uniform"
             ],
+            "abandoned": true,
             "time": "2015-10-29T21:35:12+00:00"
         },
         {
@@ -429,6 +430,7 @@
                 "link",
                 "temporary"
             ],
+            "abandoned": true,
             "time": "2015-11-09T06:55:20+00:00"
         },
         {
@@ -482,6 +484,7 @@
                 "iterator",
                 "library"
             ],
+            "abandoned": true,
             "time": "2015-10-29T21:37:16+00:00"
         },
         {
@@ -544,6 +547,7 @@
                 "sampler",
                 "set"
             ],
+            "abandoned": true,
             "time": "2015-10-26T15:22:52+00:00"
         },
         {
@@ -598,6 +602,7 @@
                 "library",
                 "regex"
             ],
+            "abandoned": true,
             "time": "2015-08-13T06:48:47+00:00"
         },
         {
@@ -654,6 +659,7 @@
                 "library",
                 "ruler"
             ],
+            "abandoned": true,
             "time": "2015-11-09T06:58:52+00:00"
         },
         {
@@ -712,6 +718,7 @@
                 "stream",
                 "wrapper"
             ],
+            "abandoned": true,
             "time": "2015-10-26T12:21:43+00:00"
         },
         {
@@ -771,6 +778,7 @@
                 "string",
                 "unicode"
             ],
+            "abandoned": true,
             "time": "2015-11-09T06:44:33+00:00"
         },
         {
@@ -826,6 +834,7 @@
                 "visit",
                 "visitor"
             ],
+            "abandoned": true,
             "time": "2015-08-17T06:30:58+00:00"
         },
         {
@@ -1201,22 +1210,26 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.3.4",
+            "version": "2.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "11a2545c44a5915f883e2e5ec12e14ed345e3ab2"
+                "reference": "2acf168de78487db620ab4bc524135a13cfe6745"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/11a2545c44a5915f883e2e5ec12e14ed345e3ab2",
-                "reference": "11a2545c44a5915f883e2e5ec12e14ed345e3ab2",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/2acf168de78487db620ab4bc524135a13cfe6745",
+                "reference": "2acf168de78487db620ab4bc524135a13cfe6745",
                 "shasum": ""
             },
             "require": {
+                "ext-simplexml": "*",
                 "ext-tokenizer": "*",
                 "ext-xmlwriter": "*",
                 "php": ">=5.1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
             },
             "bin": [
                 "scripts/phpcs",
@@ -1225,7 +1238,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -1271,7 +1284,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2015-09-09T00:18:50+00:00"
+            "time": "2018-11-07T22:31:41+00:00"
         },
         {
             "name": "symfony/config",
@@ -1718,6 +1731,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
+            "abandoned": true,
             "time": "2015-05-27T22:58:02+00:00"
         },
         {
@@ -2216,12 +2230,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Psr7\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
